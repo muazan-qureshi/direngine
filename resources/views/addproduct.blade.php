@@ -1,7 +1,7 @@
 @include('header');
 
 
-<form class="form row col-11" method="get" enctype="multipart/form-data" action="submit">
+<form class="form row col-11" method="post" enctype="multipart/form-data" action="submit">
 	@csrf
 	<div class="form-group col-md-6">
 		<label>Product Name</label>

@@ -29,10 +29,11 @@ Route::get('addpro',function () {
 	return view('addproduct');
 });
 
-Route::get('allpro',function () {
-	return view('allproducts');
-});
+// Route::get('allpro',function () {
+// 	return view('allproducts');
+// });
 
 // Inserting data in products table
 // Route::post('submit,[Procontrol::class,'insertpro'])
-Route::get('submit',[Procontrol::class,'insertpro']);
+Route::post('submit',[Procontrol::class,'insertpro']);
+Route::get('allpro',[Procontrol::class,'selectpro']);

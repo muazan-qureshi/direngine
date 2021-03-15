@@ -19,27 +19,24 @@ class ProControl extends Controller
 		$data->pstock = $r->stock;
     	// $data->pcode = $r->code;
 
-		// $_file = $r->file('img')->getClientOriginalName();
-		// $r->file('img')->storeAs('images/',$_file);
-		// $data->pimg = $_file;
+		$_file = $r->file('image')->getClientOriginalName();
+		$r->file('image')->storeAs('images/',$_file);
+		$data->pimg = $_file;
 
-		// $_file = $r->file('image')->GetClientOriginalName();
-		// $r->file('image')->storeAs('images/',$_file);
-		// $data->img = $_file;
+    	echo $data->save();
+        return redirect()->back();
+    }//insert function end here
 
-			// $image = ;
-            // $filename = $r->file('image')->getClientOriginalName();
-            // $r()->$r->file('image')->move(public_path('images/'), $filename);
-            // $data->pimg = $r->file('image')->getClientOriginalName();
-
-		// $data->pimg = $r->image;
-		// $_file = $r->file('image')->GetClientOriginalName();
-		// $r->file('image')->storeAs('images',$_file);
-		// $data->pimg = $_file;
-
-    	$data->save();
-
-    	// return view('addproduct');
-    	    	
+    function selectpro()
+    {
+        $data = ProModel::all();
+        return view('allproducts',['list'=>$data]);
     }
 }
+
+
+
+// function viewpro(){
+//         $data = mymd::all();
+//         return view('products',['list'=>$data]);
+//     }
